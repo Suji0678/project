@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .login-form {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: orange;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+
+<body>
+<form action="project1.html" onsubmit="return display()">
+<div class="login-form">
+    <h2>Login</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <input type="email" id="email" placeholder="Email">
+
+
+    <button type =" submit" >Login</button>
+</div>
+</form>
+<script>
+      function display(){
+        let data1=username.value
+        let data2=password.value
+        let data3=email.value
+        if ((data1=="") || (data2=="")){
+          if(data3==""){
+          alert("Please fill all required details!")
+          return false
+        }}
+        else{
+          alert("Logged successfully")
+          return true
+        }
+      }
+    </script>
+   
+
+</body>
+</html>

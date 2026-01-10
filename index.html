@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #e68c0f;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: auto;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            color: orange;
+        }
+        .signup-btn {
+            background-color: rgb(31, 201, 45);
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .signup-btn:hover {
+            background-color: rgb(60, 175, 25);
+        }
+        .main-section {
+            font-size: 20px;
+            font-style: italic;
+            padding: 50px;
+        }
+
+        .main-section h1 {
+            text-align: left;
+            font-size: 36px;
+        }
+        .page-section {
+            height: 100vh;
+            background-color: #FDF2E9;
+            color: #2D3436;
+            display: flex;
+            align-items: center;
+            padding-left: 60px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        p {
+            font-size: 30px;
+            max-width: 600px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 25px;
+            background-color: #E67E22;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkorange;
+        }
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            font-size: 35px;
+            grid-template-columns: repeat(3, minmax(160px, 1fr));
+            grid-column: 3;
+            grid-row: 1;
+            gap: inherit;
+            gap: 40px;
+            max-width: 1300px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .card {
+            background:  #FDF2E9;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+        }
+
+        .img-circle {
+            width: 120px;
+            height: 120px;
+            border: 5px solid #7cb342;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+        }
+
+        .img-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 26px;
+        }
+        .card p {
+            font-size: 19px;
+            color: #666;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 19px;
+        }
+        .price {
+            border: 1px solid #aaa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        button{
+            background-color: #7cb342;
+            border: none;
+            font-size: 20px;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            background-size: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-size: 5px;
+            background-color: #689f38;
+        }
+        
+        .why-choose {
+            text-align: center;
+            padding: 100px 40px;
+        }
+        .why-choose h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .why-choose p {
+            color: #777;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .cards {
+            background-color:  #FDF2E9;
+            width: 290px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+        .cards h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .cards p{
+            color: #666;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .added-text {
+            font-size: 12px;
+            color: white;
+            background-color: orange;
+            padding: 2px 6px;
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .menu {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .menu h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .menu-subtitle {
+            color: #777;
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 50px;
+            font-size: 19px;
+        }
+        .menu-containers {
+            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+            grid-column: 3;
+            grid-row: 5;
+            gap: inherit;
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .menu-cards {
+            width: 260px;
+            background: #FDF2E9;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .img-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 6px solid orange;
+            margin: auto;
+            overflow: hidden;
+        }
+        .img-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .menu-cards h3 {
+            margin: 20px 0 10px;
+            font-size: 25px;
+        }
+        .rating {
+            color: #fbc02d;
+            font-size: 14px;
+        }
+        .rating span {
+            color: #777;
+        }
+        .price-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .price {
+            font-size: 25px;
+            color:orange;
+            font-weight: bold;
+        }
+        .add-btn {
+            width: 50px;
+            height: 50px;
+            background:orange;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .add-btn:hover {
+            background: orange;
+        }
+        .menus {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .menus h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #777;
+            margin-bottom: 40px;
+            font-size: 19px;
+        }
+        .card2-container {
+            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(180px, 1fr));
+            grid-column: 3;
+            grid-row: 3;
+            gap: inherit;
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .card2 {
+            background:  #FDF2E9;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .img-box {
+            width: 140px;
+            height: 140px;
+            margin: auto;
+            border-radius: 50%;
+            border: 6px solid orange;
+            overflow: hidden;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card2 h3 {
+            margin: 15px 0 5px;
+        }
+        .stars {
+            color: #f4c430;
+            font-size: 15px;
+        }
+        .desc {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+        }
+        .price-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .price {
+            border: 1px solid #ccc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        button {
+            background: orange;
+            border: none;
+            padding: 8px 16px;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background:orange;
+        }
+        .chefs-section {
+            text-align: center;
+            padding: 60px 40px;
+            background-color: #FDF2E9;
+        }
+        .chefs-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 50px;
+        }
+        .chefs-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .chef-card {
+            border-radius: 16px;
+            padding: 20px;
+            width: 250px;
+        }
+        .chef-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        .chef-card #secondimg{
+            padding-top: 70px;
+        }
+        .footers {
+            background: #d6e7c5;          
+            padding: 40px 60px;
+            margin-left: 70px;
+            margin-right: 70px;
+        }
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            margin-right: 50px;
+        }
+        .footers h3{
+            color: #000000;
+        }
+        .footer {
+            background:#d6e7c5 ;           
+            padding: 40px 60px;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    .footer-column {
+        flex: 1;
+    }
+    .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #222222;
+    }
+    .footer-column ul {
+        list-style: none;
+    }
+    .footer-column ul li {
+        margin-bottom: 8px;
+    }
+    .footer-column a {
+        text-decoration: none;
+        color: #666666;
+        font-size: 14px;
+    }
+    .footer-column a:hover {
+        color: #000000;
+    }
+    .footer-column p {
+        font-size: 14px;
+        color: #666666;
+        margin-bottom: 8px;
+    }
+    .newsletter-form {
+        display: flex;
+        margin-top: 15px;
+    }
+    .newsletter-form button {
+        padding: 10px 18px;
+        border: none;
+        background: #4caf50;          
+        color: #ffffff;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 0 4px 4px 0;
+    }
+    .newsletter-form button:hover {
+        background: #45a049;
+    }
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+    }     
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">🍽 Foodies</div>
+    <nav>
+        <a href="#page1-section">Home</a>
+        <a href="#about-us">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#chef">Chef</a>
+        <a href="#menu">Regular Foods</a>
+    </nav>
+    <button class="signup-btn" onclick="goToLogin()">Sign Up</button>  
+</header>
+<section class="main-section">
+    <h1 >In fields of code and culinary dreams,A digital kitchen where flavor teems. <br>
+        From garden green to fiery stove,A website grows, a tasty grove. <br>
+        Each dish a poem, a vibrant art,Serving passion from the heart.</h1>
+</section>
+<section class="page-section" id="page1-section">
+    <div>
+        <h1>Welcome to the World of Fully New Things</h1>
+        <p>
+            Explore a variety of delicious dishes crafted with passion
+            and served with love to make your day special.
+        </p>
+        <button onclick="exploreFoods()">Explore Foods</button>
+    </div>
+</section>
+<section class="card-plan">
+<div class="menu-container">
+    <div class="card">
+        <div class="img-circle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAON4_DrzXW2PdbyrcwQTdFNJi2YtP_qWoSw&s" alt="Chicken Burger">
+        </div>
+        <h3>Chicken Burger</h3>
+        <p >This is an excellent chicken burger that is very healthy</p>
+        <div class="card-footer">
+            <span class="price">$3.50</span>
+            <button class="view-btn" data-page="cb.html" onclick="placeOrder()">Buy Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="img-circle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk_Tv6d9bpeiDQfUzEDqLJjDROoBJpf-eykg&s" alt="Chicken Pizza">
+        </div>
+        <h3>Chicken Pizza</h3>
+        <p>This is an excellent chicken pizza that is very healthy</p>
+        <div class="card-footer">
+            <span class="price">$3.60</span>
+            <button class="view-btn"  data-page="cp.html" onclick="placeOrder()">Buy Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="img-circle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAwr23SJmXlLZDF-4hpBrnk8fxy6BUB7s9Q&s" alt="Chicken Rice">
+        </div>
+        <h3>Chicken Rice</h3>
+        <p>This is an excellent chicken rice that is very healthy</p>
+        <div class="card-footer">
+            <span class="price">$4.50</span>
+            <button class="view-btn" data-page="cr.html" onclick="placeOrder()">Buy Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="img-circle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_WzcWTEhk0X6ZslVJYdU9lwWo7hfb-J-K2w&s" alt="Dessert">
+        </div>
+        <h3>Special Dessert</h3>
+        <p>This is an excellent dessert that is very healthy</p>
+        <div class="card-footer">
+            <span class="price">$2.50</span>
+            <button class="view-btn"  data-page="sd.html" onclick="placeOrder()">Buy Now</button>
+        </div>
+    </div>
+</div>
+</section>
+
+</div>
+<section class="why-choose" id="about-us">
+    <h1>WHY CHOOSE US?</h1>
+    <p class="menu-subtitle" >
+        You will choose us because you get the best quality food <br>
+        from us and we deliver fast.
+    </p>
+    <div class="card-container">
+        <div class="cards">
+            <div class="icon">🥗</div>
+            <h3>Serve Healthy Food</h3>
+            <p>
+                We serve all healthy food here.  
+                You can choose any food you like.
+            </p>
+        </div>
+        <div class="cards">
+            <div class="icon">⭐</div>
+            <h3>Best Quality</h3>
+            <p>
+                     You will get exactly what you want here.
+                    Our food quality is excellent.
+            </p>
+        </div>
+        <div class="cards">
+            <div class="icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>
+                Our delivery man delivers orders quickly.  
+                You will receive it shortly after ordering.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="menu" id="menu">
+    <h1>SPECIAL MENU</h1>
+    <p class="menu-subtitle">
+        Some of our special food menu is given here. These are what people
+        order more. If you want you can order from here.
+    </p>
+    <div class="menu-containers">
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYl1yv3ZkCHrGt_yjkQrFpSYSbUOhevVjiLw&s" alt="Salads">
+            </div>
+            <h3>Salads</h3>
+            <div class="rating">★★★★★ <span>(86)</span></div>
+            <div class="price-box">
+                <span class="price">$2.50</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC5o1oDCaSOFwule4xP7HVWP5i0VM4i3NKqw&s" alt="Egg Masala">
+            </div>
+            <h3>Egg Masala</h3>
+            <div class="rating">★★★★★ <span>(90)</span></div>
+            <div class="price-box">
+                <span class="price">$3.40</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVbuLSJn2w6rE4vWraz6ZmxilU9gOoLIPPg&s" alt="Fried Fish">
+            </div>
+            <h3>Fried Fish</h3>
+            <div class="rating">★★★★★ <span>(88)</span></div>
+            <div class="price-box">
+                <span class="price">$4.00</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://static.vecteezy.com/system/resources/previews/047/312/124/non_2x/fried-chicken-patty-burger-png.png" alt="Chicken Burger">      
+            </div>
+            <h3>Chicken Burger</h3>
+            <div class="rating">★★★★★ <span>(87)</span></div>
+            <div class="price-box">
+                <span class="price">$2.45</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg-fZhjQDJgvMzGkBlneFSr5whVUtFt31ODQ&s" alt="Creamy Shrimp Pasta">
+            </div>
+            <h3>Creamy Shrimp Pasta</h3>
+            <div class="rating">★★★★★ <span>(80)</span></div>
+            <div class="price-box">
+                <span class="price">$3.10</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://media.istockphoto.com/id/1311792726/photo/wada-pav-dish.jpg?s=612x612&w=0&k=20&c=DijCUMSryMn-S9y3lcoQO-ButhY6DS-r7zAt53dEVXY=" alt="Vada Pav">
+            </div>
+            <h3>Vada Pav</h3>
+            <div class="rating">★★★★★ <span>(82)</span></div>
+            <div class="price-box">
+                <span class="price">$4.00</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCMwjaZ1oBUnxjfRzY1KKvNxmlry9oeEaxIg&s" alt="Momos">
+            </div>
+            <h3>Momos</h3>
+            <div class="rating">★★★★★ <span>(83)</span></div>
+            <div class="price-box">
+                <span class="price">$4.10</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://5.imimg.com/data5/XO/QN/MY-65295735/spicy-veg-cutlet.png" alt="Cutlet">
+            </div>
+            <h3>Cutlet</h3>
+            <div class="rating">★★★★★ <span>(70)</span></div>
+            <div class="price-box">
+                <span class="price">$2.00</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTfFHgsDiSQO62kOYTk45TWKm4nfPieaFjOg&s" alt="Tandoori">
+            </div>
+            <h3>Tandoori</h3>
+            <div class="rating">★★★★★ <span>(72)</span></div>
+            <div class="price-box">
+                <span class="price">$1.45</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZBxWjYMaIuBdI22SNZmJWEDujPCfcdIZFmA&s" alt="Chettinad Chicken">
+            </div>
+            <h3>Chettinad Chicken</h3>
+            <div class="rating">★★★★★ <span>(76)</span></div>
+            <div class="price-box">
+                <span class="price">$2.95</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMDvYV72pGY0T6CTMAyPtl-7Hc0Wv_Ei2bdA&s" alt="">
+            </div>
+            <h3>Salmon Rice Bowl</h3>
+            <div class="rating">★★★★★ <span>(78)</span></div>
+            <div class="price-box">
+                <span class="price">$3.45</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://static.vecteezy.com/system/resources/previews/048/067/102/non_2x/biryani-dish-a-plate-of-dum-biryani-isolated-illustration-on-a-transparent-background-png.png" alt="Mutton Biryani">
+            </div>
+            <h3>Mutton Biryani</h3>
+            <div class="rating">★★★★★ <span>(65)</span></div>
+            <div class="price-box">
+                <span class="price">$3.68</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2UShSoQ6MpOF8rdXRohFKjMgnG_IKr92jfg&s" alt="Crab Curry">
+            </div>
+            <h3>Crab Curry</h3>
+            <div class="rating">★★★★★ <span>(68)</span></div>
+            <div class="price-box">
+                <span class="price">$4.42</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYwuTB2nb1PcFzlewaNWTEg9VDZK1PKAjBhg&s" alt="Shrimp Vindaloo">
+            </div>
+            <h3>Shrimp Vindaloo</h3>
+            <div class="rating">★★★★★ <span>(63)</span></div>
+            <div class="price-box">
+                <span class="price">$3.80</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+        <div class="menu-cards">
+            <div class="img-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYtnMSfTwmDB-y5swlKq20e7FCSKeHUUUJJw&s" alt="Prawn Roast">
+            </div>
+            <h3>Prawn Roast</h3>
+            <div class="rating">★★★★★ <span>(58)</span></div>
+            <div class="price-box">
+                <span class="price">$5.45</span>
+                <button class="add-btn">+</button>
+                <span class="added-text" style="display:none;">Added</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="menus">
+    <h1>OUR REGULAR FOOD</h1>
+    <p class="menu-subtitle">This is our daily food list. Choose your favorite food and order.</p>
+    <div class="card2-container">
+        <div class="card2">
+            <div class="img-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYl1yv3ZkCHrGt_yjkQrFpSYSbUOhevVjiLw&s" alt="Salads">
+            </div>
+            <h3>Salads</h3>
+            <p class="stars">★★★★★ (69)</p>
+            <p class="desc">This is a great green salad that is very Healthy.You can eat it with any meal.</p>
+            <div class="price-btn">
+                <span class="price">$3.50</span>
+                <button class="view-btn" data-page="Salads.html" onclick="placeOrder()">Buy Now</button>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="img-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDuUCjVjOsPpucwriCeciNBO-WOLRzeAygMg&s" alt="Chicken Masala">
+            </div>
+            <h3>Chicken Masala</h3>
+            <p class="stars">★★★★★ (120)</p>
+            <p class="desc">This is a great chicken masala that is very Healthy.You can eat it with any meal.</p>
+            <div class="price-btn">
+                <span class="price">$4.00</span>
+                <button class="view-btn"  data-page="Chickenmas.html" onclick="placeOrder()">Buy Now</button>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="img-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEDbUIB96FgmVxWX1F13vorYllhRfKeuQpbw&s" alt="Mutton Kheema">
+            </div>
+            <h3>Mutton Kheema</h3>
+            <p class="stars">★★★★★ (112)</p>
+            <p class="desc">This is a great mutton kheema dish that is very Healthy.You can eat it with any meal.</p>
+            <div class="price-btn">
+                <span class="price">$4.60</span>
+                <button class="view-btn" data-page="mut.html"  onclick="placeOrder()">Buy Now</button>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="img-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrJ3czirA_MHLgotBMezPUohbkx_SyA-oKnQ&s" alt="Beef Pasta">
+            </div>
+            <h3>Beef Pasta</h3>
+            <p class="stars">★★★★★ (106)</p>
+            <p class="desc">This is a tasty beef pasta  that is very Healthy.You can eat it with any meal.</p>
+            <div class="price-btn">
+                <span class="price">$3.00</span>
+                <button class="view-btn" data-page="bf.html"  onclick="placeOrder()" >Buy Now</button>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="img-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5WN0iUf5fe4QMeYxRlighZ5PWcPyj7j7D1A&s" alt="Chicken Fry">
+            </div>
+            <h3>Chicken Fry</h3>
+            <p class="stars">★★★★★ (120)</p>
+            <p class="desc">Crispy and delicious chicken fry.You can eat it with any meal.</p>
+            <div class="price-btn">
+                <span class="price">$4.00</span>
+                <button class="view-btn" data-page="cf.html"  onclick="placeOrder()">Buy Now</button>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="img-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_WzcWTEhk0X6ZslVJYdU9lwWo7hfb-J-K2w&s" alt="">
+            </div>
+            <h3>Special Dessert</h3>
+            <p class="stars">★★★★★ (98)</p>
+            <p class="desc">Sweet and special dessert item that is very Healthy.You can eat it with any meal.</p>
+            <div class="price-btn">
+                <span class="price">$2.50</span>
+                <button class="view-btn"  data-page="sd.html" onclick="placeOrder()">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="chefs-section" id="chef">
+  <h1>OUR SPECIAL CHEF’S</h1>
+  <p class="menu-subtitle">
+    Featured below are some of our special chefs who work to prepare your meals
+  </p>
+  <div class="chefs-container">
+    <div class="chef-card">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExIVFRMXFxYVFxUXFRYVGBUWGBUWFxcXFxUYHSggGBolGxUVITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFyslHR8rLy0rKystLS0tLS0vLS0tLS0rLS0uLS0tKy0rLS0tLS0tMC0tKy0tLS0tLS0tLS0tLf/AABEIAQMAwgMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAUCAwYBBwj/xABAEAABAwEFBQUGBAQEBwAAAAABAAIRAwQFEiExBkFRYXEigZGhsQcTMmLB0UJS4fAUI3KSgqKywhUWM0Njs/H/xAAZAQEBAAMBAAAAAAAAAAAAAAAAAQIDBAX/xAAlEQEBAQEAAgEDAwUAAAAAAAAAAQIRAzEhBBJRE0FhFCIycYH/2gAMAwEAAhEDEQA/APuKIiAiIgIiICLCo+BKisrl08leCW6oBqQvBVad48VoBErIBODYaoQuKhl0OwnqOYW5j/BOIwdaCHQT0WQqHiVhbKOIZajT7KJZrT2gOI88v1VE3+NDXBj8p+F24xqORUwFc7te/DZi8atcxwP+MT5SFW7K3lUdWwzLCDI3CZiOenmpwdoiIooiIgIiICIiAiIgIiICIiAvCV6tbygwcolmyJbulSxqsXMWSNdVpzMSF5Tqc/FbmlaH0s8jHLcg8trJbI1Gf3WNlrYhz0IW0aQo9SnhOJuu8cVRupVcy07lU27sVhwOY7/1BUytIfjOhjuyUPaN2VNw5z0y/VBr2wfNkcOMeRBUHYOlJxcye4ZBaNprWTRY3cWvM8xGXmFL9nlduEs/GWh4/pxFp84T1B2aIiwUREQEREBERAREQEREBERB4VplbnaFVNtt+HJok8d36qwTy8BR69tY3VwUGm1xEueemkKO+k01WNnOeu6VlIixp1i/NoPhHqpVOhxMrZTYAICyU6PIWJas14VBGqcCqq8dYOhVtW0VTeGqyg5XaTKnAzwgx3nPyWWwdNxtowns06JDuYJHq4z3LXfbu13K99m9hwsrVj+N+EH5Wj7mO5LSOzREWCiIiAiIgIiICIiAiIgIiIPHDIqrZZMyXK1UO8bMXNOHWNOI+6soprbeIPZYJHHitd3Wc42vPFaaNPtR5K3oQ2ATEkALNFmi8lVz73acqfa+b8Pd+brotd1J7ZZzdelkhVUa7jq492Xoo1RjScwD5rXfLPw2zwX96t6kFVd4tyJVPb6AmQ0eAXOXpbqtP4HuHKZH9pyWM+pneWNn9JbOypF6O9V3mybpslGBHZI8HEH0Xyll7mqcLwA7cRo7Ke48l9U2QEWOl0d5vct3ZZ2Oa5ubyrlEREEREBERAREQEREBERAREQEREEepYmF2OO1xG9QLZWoUXtxSahBLd5AOUgeIyzVuudvugPfY3CW4PSZHmsPJu5z2N3gxneuVx/8AzO+8bQaTJZZWzDcw6rBjFU4Dgzdvk5C4t1ocwBlMdojU6NHGN/RVd1XZ7u01auHC14BDZk5kkk8NJ71f2mye8bEkcxqubW/uvXZjExOOQvKvbqYxNtTNcw7CD3ZZKZs3e9pe4Nrw75hH0yUa99jw8AMrVRmCRn2oJPIDWMtYCsNmrgNA4nOJzyH5Rw1KmtfDPOZ89e7QX42jiBzI3L5zee0Vpqn+XQkcTKuPaPY3PtjGtfhDgqm8dn3tIc2qQwA9gB4MxqXDI555AfVMfb+7HX3esolivMvp1A4YajBjHCW5/RfoDY6pisVBw0cwO8ST9V+eW2V7Q4PzlrhiggmQdQV33sJtNR1W0sxuNNlKjkXEw50luukAOC6canpyeTF+b+H2FERbHOIiICIiAiIgIiICIiAiIgIiICrb9pTTB4HPoQR9lZLxzZEHMHcpqdnGWNfbqVw9aRUz3gZ8cyrWxuHFa9o7E2mab2CJLmnMnOJGpy0cufvi8DSouqCTAJgalcWpcaejizyZ+Fpft9U6QgDG85NaNSTuS76xwt964B5zI/LyjhzXJ3C2X++rPDqm4AyGcv1U2+K5cMVMTUGhluXerzvtnOSckU/tAtDDVY5roc05HWQpFz3m2tTB0MZj7clw20NkqvcC8knhPrC2XXeBpYRBy1HEJrx/CZ3y8q7vdsueRnDHFfS/ZTcDbLYWO/7tcNrVD1aMDegbHeSvm1C732i2U7O04TUyJO5oBc4x0aV93s9EMa1jRDWgNA4ACB6Lf4Z8OT6nX91jYiItzlEREBERAREQEREBERAREQEREBERBT7VUsVnJGrXBw9PquMtUVKZGsiIXfXm0uY5o69YMx5LhLwsnuyXD4TnHD9FzebPa7Pp98yU7ioOw1TTb71ojHAJg7ncR6KxrOYGQ6jReIIygHQAZQYyAzWF11gWxKh3xdIcJDi08vssPTplzXF7b+7c0spUKVOT8QkuiG7o+U796qtkLBSYcTs2sEy7OSp98XU4E4qhPUqPsvdLrZaRZWPwMMl7vkbmYHE6LOTs5GHk1MXvHfezK7jWr1be8dkTSpcyT23DoIHe7gvpS0WCxso02UqbcLGNDWjgB6nmt635zycefvV1e0REWTEREQEREBERAREQEREBERAReErX74bkG1a3VOH6LFxQHKUCFUXtd0y5okHUcOYVwvCprM1OVljdzex82tVkexxdSMT+HcefIqmvK967fiaRHevpd6XS1+bey/8AynqN3ULitobMWAtqNLXQY3h3Q71zazc+3bjc16vK+e3hbXVXH4gOaiUba6i9jqTyyo1wc0jUET48xvEqRa6ZkgKqfZnvr0KbBLnPjoIJJ6AAk8pWefbDXrtfpzZ+8v4izUq8QXsDiBmA7Rw7iCrBfF7PflosjsFGqQxoAwntNmM+ydJO8Lq7j9ozX9m0Uiw/nZLm97dR3St7kd6i0WK2U6rQ+m8Oad49DwPIreiCIiAiIgIiICIiAiIgErS+tw8V4/PovCFR4an7KEzr4rwjgvG8sjw3FBnmOaxa6D1XoP6jgsard/eg2oVqZVELYHBBg9sqo2ksArWepTOuBxaeDmglpHeB3Srlqj26j7ym9kkYmubI1GIESOYlQl5XwKtVBYHcla7K3ZhBtLtXYmM+VgMPd1J7I4BruK7F+wFkY0NJqvA4v1/tAW6rdNOnhY0YWNENEkwCS52vzOPitePHZfl0eTzTU5HMiwmoXPw9k5Ry0UFtkLXR+yu/uiyg4oHZjzUK33YzEY6rbxz9arlLg3+W91N2+D6jQ96uLNtLWpu93VYKh3Edk+kHyXK3FftF9d9Om4k0jDsoGZLZHe0+HMLrrRZA8Bwyc3MH6HkgtrBf1OoQ0g03HIB2hPAHj4K2Xz+/mw2k7QioJ72uHqQuvuO8PfU8/jbAdzkSHd/qCgsURFAREQEREBY1DAKyWFbQ/veg1tXpXjVkqMVi9s571kQvA5B4wz10Wug/KD+93rKVjhOIab15VGYI0Mjx/UDzQcxtJf1azVaFNlndVp1KmGo9oPYBIBz0ESTnrELqaTpAWoulsmOfULZREINgC9IXq8KIpr0q4QSqWlZzUMneVZ7QjNo3KRZLPDWqjZQoBjIChmjLjkrOqQAoz6oCCir7P0WuNRlNrajvic0QXczxKtLrMgtOoyWVorECY/cLVdzu17zdiDT/AIhl5+qCJtTTmieIcw/5wPqtV1W40rTOlM4abuGeh7iR5qVtDJp15jsdqPl1HoqhlPE3m4z9fRQfR0UC47V7yi0ky5vYd/U3LzEHvU9RRERAREQFrr/CVsWFb4Sg1NWawbmAVkqBWDlmsHhBqe7cdDktTTFMg6tPp+i3OEiFEqPg579eo0PeEGVmf2nDjmO/9+a3Ys1Cou0PA4e7UfRTiERvCQjNF45yCp2gp9id69sdSWjkApF5DExVl1P1HMoJdUSvHMW4rByog3oez3qTd1LFQIGuo6jMeYUC93nIKzuE/wAtBTbTVcq/zWdviXOH1S57OG0veO4T5KFf7DUr1KbTE+5ZPAYsR8pVre7cFAtGkQoNWw94TUqsOjyXt6gwfIj+1dmuE2es+B9N/wAwH92R9V3aiiIiAiIgLCroVmvHDJBDpPjot8qLK3tVHpWJcs5WJgoI1R0KLeXaplw1br0UbaanUDA5oLmtnEG5uA4gDVUd0326TMVKZmRvA5Hetd8kl5W/Pgusfdm/8XtjqSAfzN8x+k+CtLOZC5m67V2I/I6R0n7LobPWyWyXrTZz2lVHwAFqwk66LlXbQWr/AIj/AA7rKRZi2W1txMNjtSRriBEAjCDnK6rEUQtAyVE0YanXNXb1WXkyDKqJdMSsnU1rsj8luqaIOQ2s2hoWZ7W1HdpxABjIZtEnve3xV9s7Wlrp4qhvy66VocRUY1xbD2EgEtcN7eClXE4tdhO8R3hBIstDHanu/wDL/ppR6lSdpRk1vErbc1Htudzee8kAf6Svb6py9nVRVRtATTsjnNMEAEEagggghddc1t99RZU3kDEODt/371ze0FLFZ3t5KTshXimzgQGnkdAfp4IOoREUBERAREQQa7YJWVFy2WpkqLTfBVEkqNb34GF3Dyz1hSSvKgyUqy8rmze72/ia4cCPsqq96Yd/MptwVDnh/C48+B5/sZ3rYKbXmW4HTlBLQc5nKAo1Vjg3EHyNwd9x9lzXV9V6Uxn41lWvtDw4OEscPw8eMjeF1Fy3y2q0bnDJw5ri7ye7FLhGWQ85BW+76wAxsMO3hXG/tY+XxTf+30oEH7rZOS5y4L8FUBsdsajp6q+Y9dMvXn6zZeVsK0WtkhbQVprVswOKqI1ldBVg7MKvqZGVpv8AvIUbO90wYIHUhTqydUtrvBvvHYTIGU9P1WdhrDJ0/i8oXD0rdUIhlNx+Y9lvide5TadqqNyLzi6AtHQDNav1Y6L9PePp1xvlhdxc7wxH7lbbwZMHgqTYy8mvpmlhLDTMAEyXMgdoHfnP1V5bNAtkc9nKrbfmxw5H0WvZpvYwqVVp9lR21m2ek5x7uZVR1NF+JoKzVfcFfHZ6TpmW59dD5yrBQEREBERBHtj4AJ0xfQqLXbB5FTLZSxMc3iMuuo81Dsz/AHlMcdD1Co9pVNxzUiVBaVKpuQRbRhqYmFocN8iR5rj74u6pTJIaQ0bwCWEbuQ8l3FiZDeZJJWq9QMIJMAOBMamNG95gLDeJpu8Xlvjv8Pld4vcSG1GlhAnCQRM6ESpFy3bUrDCxpJ46DqXHJfRq1jY+q11Sm10MmXDFhOWk5blsFcRlpu4QsP0v5bb9V8fE+XDUtkbW17XtNKQcyHmB17M+AXaWeiQAHOE98T1Kw9/JMbxmjKoeCDk4ef3WzOZlz78l17TWMjI+K8wDgo1C0YW4HGXTl0XtS08FkwSC0cFxPtBaGOpVPwvxMIOgcBiBA3SJn+kLp3WhcL7WLXFmoZ62gf8ArqfdYeSdzWzxa5uVVPtYjNVlttarmW3JaK1qGa45l6F32Okua+3Uy17TmDpOvI8ivp1C8W1qbHt+F2Y8NF8DZa8IJ4L6zsCHmx0iD8QLgSNA4zlyz1XXhxeTjs2UxGfguE2htNWo7NpAGg0yXVOLhkXAd+a8rUqTmw94jn99y2NDb7PqhNkg6tqPHjDv9y6Zcxsc9jXV6LKge0FrwRukQ4c4wt8V06gIiICIiAoNOlge+NHEOjgSM1NcYBKqqdpBcQT2jmqNlqZvC8pPWynUxCDqoxEFBNpkAEnRQbydiwcMQPhmsarcULOu2X0wOaDVelcgYRvCr/4ojKMh1S8rYDWLczHAA/VaqtqbGZI6g/RBl76M4z6rKrXggxBggfSVp/i6cZvHeCPVRatsa50B7YHzCFRcUX4jO8A8NY0WL7NVPAdf0UW76rQ4OxtnT4hwiSrN7Sd6CG6wkCX1O4BfOva9WaKdmYJnG92vAAfVfS6zJbE5kgnoF8i9q9cOtFFgIJaxxgZ/E4a/2rHfplj/ACcgap4wttgsFa0GKUc3Gcu5SbsuxtQjGT3aBfQtnLHSoAmcR6ZrXnH5bdeT8Km4vZ/DmVK1QvIIdgyDSRpI1K+j2e0YeyRpl0VH/wARgZkNGeZOfcNStRvdruPXTu4rZORpttXF41Gspue1mI6yTumT5Kh2lvmm9rWURlqX6DTRo39VPoXiwtwExO48+e9cbb7MWPIBlgMCN3Iqo7v2XWY/zqh+Vg6ntH/b4rv1zmwFmwWNp3vc5/nhHk0Lo1AREQEREHhC5W9LuqUnBzO2MWUag7gfuurVDe9oc52BswPM8UGD60HXmOXJSqdoa8cHcPqqZt2VCZLoHCFmbvqDRyotN603lbTSGJoBdECVANqqNyeJ+b78VpvC0mM29OCCJYKRAdUecySSSqy3XoJ7PRb7TXqPEEHDyWmhZKX4iRyM/wDxFQP4hxMkrOiwk6K5pWSlugevipdGw0+QHEnXoE4dQ7DSJ0Hkr3374bOWoPPn++K8oVKbSA2JOSkWkMIIxRwIzM8Y3qorLZeESNdee5fLr5pe8rvqRJJjuGX3XY3naDTxBwiAc+I5ei4YWwzJ35qUjfY6AY4TvE/T99Ve06zY181z1W1YgDGbc+7f++SlUK871FWtanOa0OC1B/NeFw4hBk+sd+a1UqonLfqNxCGOIU/Zu532m0NY0HACDUdua3fJ4nQIj6/ctHBZ6LdIpsHfhEqagCICIiAiIg8ecj0UCMkRACwraLxFRR3lUMHNVV513AMgnNonmiKCjvO1PaJa4j98FR2W+K7iQahI6D7IijKLig8nUrfVJjU+JXqKo0Uqzgdf3kra66hLwCT6ei9RINu3bA2xtgD/AKgExnEO367h4L5qV4itFvdlMRMCVup0GzECM0RESBZ2/lC207MyPhCIqL3Ym66Naq8VWBwbBAzA7wDn3r6RQoNYMLGta0aBoAA7giLEbEREBERB/9k=" alt="Chef 1">
+    </div>
+    <div class="chef-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdxitH0kX48r7UfyOTONxrLRkRI6-hbab6qA&s" alt="Chef 2" id="secondimg">
+    </div>
+    <div class="chef-card">
+      <img src="data:image/jpeg;base64,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" alt="Chef 3">
+    </div>
+  </div>
+</section>
+<footer class="footers" id="contact">
+      <div class="footer-column newsletter">   
+        <h3>Subscribe Our<br>Newsletter</h3>
+        <form action="#" class="newsletter-form">
+          <input type="email" placeholder="Enter Your Email" required />
+          <button onclick="subscribeNow()">Subscribe</button>
+        </form>
+        <br>
+      </div>
+</footer>
+<br><br><br>
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Menu</h3>
+        <p>
+        <ul>
+          <li><a href="#page1-section">Home</a></li>
+          <li><a href="#about-us">Why Choose</a></li>
+          <li><a href="#menu">Special Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#chef">Special Chef’s</a></li>
+         
+        </ul>
+        </p>
+      </div>
+      <div class="footer-column">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms &amp; Condition</a></li>
+          <li><a href="#">Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>+123 456 789</p>
+        <p><a href="mailto:info@foodiel.com">info@foodiel.com</a></p>
+        <p>1245, New York, USA</p>
+      </div>
+    </div>
+  </footer> 
+<script>
+    function goToLogin() {
+        window.open("registration.html", "_self");
+    }
+    function goTo() {
+        window.open("success.html", "_self");
+    }
+    function exploreFoods() {
+        alert("Get ready to explore our delicious food collection!");
+        
+        setTimeout(function () {
+            window.location.href = "foods.html";
+        }, 1000);
+    }
+    const addButtons = document.querySelectorAll('.add-btn');
+    addButtons.forEach(button => {
+        button.addEventListener('click', () => {
+    alert('Added to cart Successfully ');
+  });
+});
+
+const viewButtons = document.querySelectorAll('.view-btn');
+
+viewButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const page = button.getAttribute('data-page');
+    window.location.href = page; 
+  });
+});
+
+function placeOrder(){
+        alert("🎉 Order is placed successfully!");
+    }
+
+function subscribeNow() {
+    const btn = event.target;
+    btn.innerText = "Subscribed";
+    btn.style.backgroundColor = "#4caf50";
+    btn.disabled = true;
+ }
+    
+</script>
+</body>
+</html>

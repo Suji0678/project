@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .form-box {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: orange;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="success.html" onsubmit="return register()">
+
+    <h2>Registration</h2>
+
+    <input type="text" id="rname" placeholder="Username">
+    <div class="error" id="nameError"></div>
+
+    <input type="password" id="rpass" placeholder="Password">
+    <div class="error" id="passError"></div>
+
+    <input type="email" id="remail" placeholder="Email">
+    <div class="error" id="emailError"></div>
+
+    <button type="submit" >Register</button>
+    </form>
+
+
+<script>
+function register(){
+        let data1=rname.value
+        let data2=rpass.value
+        let data3=remail.value
+        if ((data1=="") && (data2=="")){
+          if(data3==""){
+          alert("Please fill all required details!")
+          return false
+        }}
+        else{
+          alert("Logged successfully")
+          return true
+        }
+       
+      }
+      
+</script>
+
+</body>
+</html>
